@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace IO_2
 {
+    /// <summary>
+    /// Klasa Server. Konstruktor klasy, a w nim tworzenie instancji bazy plikowej oraz dodawanie do niej użytkowników wraz z ich hasłami. 
+    /// </summary>
     public class Server
     {
         IPAddress ip;
@@ -30,6 +33,9 @@ namespace IO_2
             listener = new TcpListener(ip, port);
         }
 
+        /// <summary>
+        /// Tworzenie wątku dla łączącego się klienta.
+        /// </summary>
         public void AcceptClient()
         {
             while (true)
@@ -46,6 +52,13 @@ namespace IO_2
 
         }
 
+
+        /// <summary>
+        /// Rozpoczęcie transmisji i obsługa klienta. Logowanie się klienta do serwera.
+        /// Serwer odpowiada na otrzymane wiadomości obliczając odpowiednią wartość
+        /// ciągu Fibonacciego lub wylogowując klienta (zależy od wybranej opcji).
+        /// </summary>
+        /// <param name="stream">strumień danych</param>
         public void BeginDataTransmission(NetworkStream stream)
         {
             byte[] login = new byte[1024];

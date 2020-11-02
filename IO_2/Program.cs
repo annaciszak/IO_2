@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 namespace IO_2
 {
     class Program { 
+        /// <summary>
+        /// Sprawdzenie czy wybrany port jest poprawny
+        /// </summary>
+        /// <param name="port">numer portu</param>
+        /// <returns>true lub false w zależności od wyniku</returns>
     static bool checkPort(int port){
             if (port < 1024 || port > 49151)
             {
